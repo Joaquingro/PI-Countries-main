@@ -21,7 +21,7 @@ const server = require('./src/app.js');
 const { saveApiData} = require('./src/controllers/saveApiData.js');
 const { conn } = require('./src/db.js');
 // Syncing all the models at once.
-conn.sync({ force: true }).then(async () => {
+conn.sync({ force: false }).then(async () => {
   console.log('Databased connected');
   await saveApiData();
   server.listen(process.env.PORT, () => {
