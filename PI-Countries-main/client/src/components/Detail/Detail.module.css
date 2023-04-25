@@ -1,0 +1,58 @@
+.container{
+    color: black;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 110px;
+    padding-bottom: 80px;
+    
+}
+.father{
+    background-image: url("../Images/home3.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.img {
+    width: 300px;
+    height: 300px;
+    border-radius: 150px;
+    position: absolute;
+    display: flex;
+    box-shadow: 0px 0px 25px #ffffff;
+    backdrop-filter: blur(10px);
+    transition: transform 0.5s;
+
+}
+.img:hover{
+    transform: rotateY(180deg);
+}
+
+    
+
+
+.txt {
+    background-color: rgb(190, 178, 178, 0.5);
+    border-radius: 30px;
+    flex-direction: column;
+    display: flex;
+    width: 25rem;
+    align-items: flex-start;
+    color: rgb(0, 0, 0);
+    border: black 1px solid;
+    padding: 10px;
+    
+}
+
+
+@media (max-width: 414px) {
+.container{
+    padding-bottom: 50px;
+    background-color: rgb(255, 189, 103, 0.5);
+}
+.img{
+    width: 200px;
+    height: 200px;
+}
+
+}
