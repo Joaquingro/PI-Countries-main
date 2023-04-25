@@ -31,14 +31,14 @@ export default function Home(props) {
     });
 
     
-    const filterAndOrder = (country, order, orden) => {
+    const filterAndOrder = async (country, order, orden) => {
         let actividyCountries;
         if(order === "activity"){
-            actividyCountries = country.slice().filter((conti => {
+            actividyCountries = await country.slice().filter((conti => {
             return conti.activities.some(act => act.name === orden);
             }));
             }else if(order === "continent"){
-                actividyCountries = country.slice().filter((conti => {
+                actividyCountries = await country.slice().filter((conti => {
                     return conti.continents === orden; 
                  }));
             }else {
@@ -48,11 +48,11 @@ export default function Home(props) {
         
         let sortedCountries; 
             if (order === "name") {
-                sortedCountries = country.slice().sort((a, b) => {
+                sortedCountries = await country.slice().sort((a, b) => {
                 return orden === "ascendente" ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name);  
              });
             } else if (order === "population") {
-                sortedCountries = country.slice().sort((a, b) => {
+                sortedCountries = await country.slice().sort((a, b) => {
                     return orden === "ascendente" ? b.population - a.population : a.population - b.population;
                  });
                
