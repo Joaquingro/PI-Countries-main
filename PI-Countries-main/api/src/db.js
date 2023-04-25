@@ -3,15 +3,22 @@ const { Sequelize, Op } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
 const {
-  DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_DEPLOY
+  DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_DEPLOY, DB_PORT
 } = process.env;
 const modelCountry = require("../src/models/Country");
 const modelActivity = require("../src/models/Activity");
 
-const sequelize = new Sequelize(DB_DEPLOY, {
-  logging: false, // set to console.log to see the raw SQL queries
-  native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-});
+const sequelize = new Sequelize( // la instanciamos
+  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`, //nos cpnectamos a la database
+  {
+    logging: false, // set to console.log to see the raw SQL queries
+    native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+  }
+);
+// const sequelize = new Sequelize(DB_DEPLOY, {
+//   logging: false, // set to console.log to see the raw SQL queries
+//   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+// });
 const basename = path.basename(__filename);
 
 const modelDefiners = [modelCountry, modelActivity];
