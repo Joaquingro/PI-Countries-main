@@ -8,8 +8,8 @@ import Nav from './components/Nav/Nav';
 import Landing from './components/Landing/Landing';
 import About from './components/About/About';
 import Form from './components/Form/Form';
-// axios.defaults.baseURL = 'http://localhost:3001/';
-axios.defaults.baseURL = 'pi-countries-main-production-d147.up.railway.app/';
+axios.defaults.baseURL = 'http://localhost:3001/';
+// axios.defaults.baseURL = 'pi-countries-main-production-d147.up.railway.app/';
 
 
 function App() {
