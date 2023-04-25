@@ -56,7 +56,7 @@ export default function Form(){
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            await axios.post("http://localhost:3001/activities", inputs)
+            await axios.post("/activities", inputs)
             console.log("Agregado correctamente");
             
         } catch (error) {

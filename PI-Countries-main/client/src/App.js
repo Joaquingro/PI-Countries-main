@@ -8,6 +8,9 @@ import Nav from './components/Nav/Nav';
 import Landing from './components/Landing/Landing';
 import About from './components/About/About';
 import Form from './components/Form/Form';
+// axios.defaults.baseURL = 'http://localhost:3001/';
+axios.defaults.baseURL = 'pi-countries-main-production-d147.up.railway.app';
+
 
 function App() {
 
@@ -16,7 +19,7 @@ const [searchCountry, setSearchCountry ] = useState([]);
 const navigate = useNavigate();
 
 const onSearch = async (name) => {
- const response = await axios.get(`http://localhost:3001/countries/byName?name=${name}`);
+ const response = await axios.get(`/countries/byName?name=${name}`);
  const data = response.data;
  
   setSearchCountry(data);

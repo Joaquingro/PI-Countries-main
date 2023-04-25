@@ -9,7 +9,7 @@ export default function Detail(props){
 
    
     const getCountries = async () => {
-        const response = await axios.get(`http://localhost:3001/countries/${id}`);
+        const response = await axios.get(`/countries/${id}`);
         const data = response.data;
         setCountry(data);
         }

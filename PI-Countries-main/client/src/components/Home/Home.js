@@ -67,9 +67,9 @@ export default function Home(props) {
    
     
     const getCountries = async () => {
-    let url = `http://localhost:3001/countries`;
+    
    
-    const response = await axios.get(url);
+    const response = await axios.get(`/countries`);
     const data = response.data;
     dispatch(getAllCountries(data));
     }
