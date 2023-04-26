@@ -75,13 +75,20 @@ export default function Home(props) {
     }
 
     useEffect(() => {
-        setTimeout(() => setLoading(false), 3000);
-        setCountry(filteredCountries);
-        
-    }, [filteredCountries])
+        let isMounted = true;
+        setTimeout(() => {
+            if (isMounted) setLoading(false);
+        }, 3000);
+        if (isMounted) setCountry(filteredCountries);
+        return () => { isMounted = false };
+    }, [filteredCountries]);
 
     useEffect( () => {
-        getCountries();
+        let isMounted = true;
+        getCountries().then(() => {
+            if (isMounted) setLoading(false);
+        });
+        return () => { isMounted = false };
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentPage])
 
@@ -123,8 +130,8 @@ export default function Home(props) {
         <div className={style.container}>
 
             <Cards country={searchCountry.length === 0 ? filterAndOrderCountries : []} />
-            {searchCountry.length > 0 ? searchCountry.map((cont) => (
-            <div className={style.card}>
+            {searchCountry.length > 0 ? searchCountry.map((cont, index) => (
+            <div className={style.card} key = {index}>
             <Link className={style.txt} to = {`/detail/${cont.id}`} key = {cont.id}>
             <h2 className= {style.h1}><img src={glob} alt=
             "popu"/> &nbsp;&nbsp;&nbsp;&nbsp;País: {cont.name}</h2>
@@ -135,8 +142,8 @@ export default function Home(props) {
             <p className={style.p}>Continente: {cont.continents}</p>
             </Link>
             </div>
-        )).slice((currentPage - 1) * 10, currentPage * 10) : filterAndOrderCountries.map((cont) => (
-             <div className={style.card}>
+        )).slice((currentPage - 1) * 10, currentPage * 10) : filterAndOrderCountries.map((cont, index) => (
+             <div className={style.card} key={index}>
             <Link className={style.txt} to = {`/detail/${cont.id}`} key = {cont.id}>
             <h2 className= {style.h1}><img src={glob} alt=
             "popu"/>&nbsp;&nbsp;&nbsp;&nbsp;País: {cont.name}</h2>

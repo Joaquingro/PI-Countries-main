@@ -2,29 +2,37 @@ import './App.css';
 import {Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import Home from '../src/components/Home/Home';
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Detail from './components/Detail/Detail';
 import Nav from './components/Nav/Nav';
 import Landing from './components/Landing/Landing';
 import About from './components/About/About';
 import Form from './components/Form/Form';
-axios.defaults.baseURL = 'http://localhost:3001/';
-// axios.defaults.baseURL = 'https://pi-countries-main-production-2713.up.railway.app/';
+// axios.defaults.baseURL = 'http://localhost:3001/';
+axios.defaults.baseURL = 'https://pi-countries-main-production-2713.up.railway.app/';
 
 
 function App() {
 
 const location = useLocation();
 const [searchCountry, setSearchCountry ] = useState([]);
+const [showNav, setShowNav] = useState(true);
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      setShowNav(false);
+    } else {
+      setShowNav(true);
+    }
+  }, [location]);
+
 const navigate = useNavigate();
 
 const onSearch = async (name) => {
  const response = await axios.get(`/countries/byName?name=${name}`);
  const data = response.data;
- 
   setSearchCountry(data);
 }
-
 
 
 const backHome = () =>{
@@ -34,11 +42,14 @@ const backLanding = () => {
   navigate("/");
 }  
 
+
   return (
+    <>
    
-      <div>
-    {location.pathname === "/" ? <Landing /> : <Nav backHome = { backHome }/>}
+     <div>
+    {showNav && <Nav/>}
     <Routes>
+    <Route exact path='/' element= {<Landing/>}></Route>
     <Route path= "/form" element = {<Form backHome = {backHome} />}></Route>
     <Route path = "/about" element = {<About />}></Route>
     <Route path= "/home" element = {<Home backLanding = { backLanding } setSearchCountry = {setSearchCountry} searchCountry = {searchCountry} onSearch = {onSearch}/>}></Route>
@@ -54,7 +65,7 @@ const backLanding = () => {
       </a>
     </footer>
    </div>
-    
+   </>
     
   );
 }
