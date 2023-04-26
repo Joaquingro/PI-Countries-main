@@ -80,6 +80,7 @@ export default function Home(props) {
         
     }, [filteredCountries])
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         getCountries();
         

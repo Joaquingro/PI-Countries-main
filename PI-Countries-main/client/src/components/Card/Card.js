@@ -1,7 +1,7 @@
 import style from '../Card/Card.module.css'
 import { Link } from 'react-router-dom';
 export default function Card(props){
-    const { id, name, image, continents, capital, area, subregion, population, onClose } = props;
+    const { id, name, image} = props;
     return(
     <div className={style.container && style.card} >
         <div >

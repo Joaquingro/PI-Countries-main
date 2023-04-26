@@ -19,7 +19,7 @@ export default function Nav(){
         <div className={style.container2}>
         <Link className={style.p}to = "/home">
         <h3>Inicio</h3>
-        <img className = {style.img} src={img}/>
+        <img className = {style.img} src={img} alt = "Mundo"/>
         </Link>
         <div className={style.menu}>
             <ul>
