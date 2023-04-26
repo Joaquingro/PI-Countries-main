@@ -13,11 +13,11 @@ export default function Detail(props){
         const data = response.data;
         setCountry(data);
         }
-        
+
+        useEffect( () => {
+            getCountries();
+            window.scrollTo(0,0)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect( () => {
-        getCountries();
-        window.scrollTo(0,0)
     }, [])
 
     return (
