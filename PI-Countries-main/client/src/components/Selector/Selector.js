@@ -34,6 +34,7 @@ export default function Selector(props){
             ...selectValues,
             continent: value
         })
+
         
     }
 
@@ -45,6 +46,7 @@ export default function Selector(props){
             ...selectValues,
             activity: value
         })
+
         
     }
 
@@ -56,6 +58,7 @@ export default function Selector(props){
             ...selectValues,
             alfabet: value
         })
+
     }
     const handleByPoblation = (event) => {
         const value = event.target.value;
@@ -66,8 +69,6 @@ export default function Selector(props){
             population: value
         })
     }
-
-
 
 
     return (

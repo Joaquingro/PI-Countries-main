@@ -17,6 +17,7 @@
     width: 300px;
     height: 300px;
     border-radius: 150px;
+    object-fit: cover;
     position: absolute;
     display: flex;
     box-shadow: 0px 0px 25px #ffffff;

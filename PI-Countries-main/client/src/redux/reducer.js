@@ -24,7 +24,7 @@ const reducer = (state = initialState, action) => {
 
             }
         case FILTER_BY_CONTINENT:
-            const filterByContinent = state.allCountries.slice().filter(conti => {
+            const filterByContinent = state.filteredCountries.slice().filter(conti => {
                 return conti.continents === action.payload;
             });
             return {
@@ -34,7 +34,7 @@ const reducer = (state = initialState, action) => {
             }
             
         case FILTER_BY_ACTIVITY:
-            const filteredActivity = state.allCountries.slice().filter(country => {
+            const filteredActivity = state.filteredCountries.slice().filter(country => {
                 return country.activities.some(act => act.name === action.payload)
             });
             return {
@@ -47,8 +47,8 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 filteredCountries: action.payload === "ascendente" ?
-                state.allCountries.slice().sort((a, b) => a.name.localeCompare(b.name)) :
-                state.allCountries.slice().sort((a, b) => b.name.localeCompare(a.name)), 
+                state.filteredCountries.slice().sort((a, b) => a.name.localeCompare(b.name)) :
+                state.filteredCountries.slice().sort((a, b) => b.name.localeCompare(a.name)), 
                 order: "name"
             }
         
@@ -56,7 +56,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 filteredCountries: 
-                action.payload === "ascendente" ? state.allCountries.slice().sort((a,b) => b.population - a.population) : state.allCountries.slice().sort((a,b) => a.population - b.population),
+                action.payload === "ascendente" ? state.filteredCountries.slice().sort((a,b) => b.population - a.population) : state.filteredCountries.slice().sort((a,b) => a.population - b.population),
                 order: "population"
             }
             
