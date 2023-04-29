@@ -1,5 +1,12 @@
-import { RESET_COUNTRIES ,GET_COUNTRIES ,FILTER_BY_ACTIVITY,FILTER_BY_CONTINENT, ORDER_BY_ALFABET, ORDER_BY_POBLATION } from "./type";
+import { RESET_COUNTRIES ,GET_COUNTRIES ,FILTER_BY_ACTIVITY,FILTER_BY_CONTINENT, ORDER_BY_ALFABET, ORDER_BY_POBLATION, UPDATE_ORDER } from "./type";
 
+
+export const updateOrder = (order) => {
+    return {
+        type: UPDATE_ORDER,
+        payload: order
+    }
+}
 export const resetCountries = (data) => {
     return {
         type: RESET_COUNTRIES,

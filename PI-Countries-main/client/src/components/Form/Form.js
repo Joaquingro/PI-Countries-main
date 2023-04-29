@@ -139,19 +139,19 @@ export default function Form(){
                 <option value = "Recorrido en cuatrimoto">Recorrido en cuatrimoto</option>
                 <option value = "Aventura en la selva">Aventura en la selva</option>
             </select>
-            {touch.name.length > 0 && errors.name && <p className={style.validate}>{errors.name}</p>}
+            {touch.name && errors.name && <p className={style.validate}>{errors.name}</p>}
 
             <div/>
             <div className = {style.group}>
             <label className = {style.label} htmlFor="difficulty">Dificultad: </label>
             <input className = {style.input} name = "difficulty" type="number" value={inputs.difficulty} onChange={handleInputChange} ></input>
-            {touch.difficulty.length > 0 && errors.difficulty && <p className={style.validate}>{errors.difficulty}</p>}
+            {touch.difficulty && errors.difficulty && <p className={style.validate}>{errors.difficulty}</p>}
             </div>
 
             <div className = {style.group}>
             <label className = {style.label} htmlFor="duration">Duración: </label>
             <input className = {style.input} name = "duration" type="text" value={inputs.duration} onChange={handleInputChange} ></input>
-            {touch.duration.length > 0 && errors.duration &&  <p className={style.validate}>{errors.duration}</p>}
+            {touch.duration && errors.duration &&  <p className={style.validate}>{errors.duration}</p>}
             </div>
 
             <div className = {style.group}>
@@ -162,7 +162,7 @@ export default function Form(){
                
             </select>
             <input className = {style.input} name = "countries" type="text" value={inputs.countries}onChange={handleInputChange} ></input>
-            {touch.countries.length > 0 && errors.countries &&  <p className={style.validate1}>{errors.countries}</p>}
+            {touch.countries && errors.countries &&  <p className={style.validate1}>{errors.countries}</p>}
             </div>
 
             <div className = {style.group}>
@@ -174,7 +174,7 @@ export default function Form(){
                 <option value = "Otoño">Otoño</option>
                 <option value = "Invierno">Invierno</option>
             </select>
-            {touch.season.length > 0 && errors.season &&  <p className={style.validate}>{errors.season}</p>}
+            {touch.season && errors.season &&  <p className={style.validate}>{errors.season}</p>}
             </div>
             
             <button  className = {style.button} >Agregar Actividad</button>
