@@ -32,7 +32,7 @@ export default function About(props){
     <div>
         <div className = {style.container}>
 
-        <img src= {img} alt = "Joaquin"/>
+        <img className={style.joaquin} src= {img} alt = "Joaquin"/>
             <div>
         <h2>¡Hola!</h2>
         <h1>Mi nombre es Joaquin Guerrero</h1>

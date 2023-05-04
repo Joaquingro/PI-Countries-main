@@ -120,6 +120,9 @@
 
 
   @media (max-width: 414px) {
+    .container{
+      z-index: 1;
+    }
     .menu{
       width: 200px;
       height: 300px;
@@ -137,6 +140,12 @@
     }
     .p h3{
       font-size: 15px;
+    }
+    .decoration{
+      padding-right: 25px;
+    }
+    .container2{
+      padding-left: 25px;
     }
   }
   

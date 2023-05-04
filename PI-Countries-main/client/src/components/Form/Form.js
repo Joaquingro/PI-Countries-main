@@ -30,7 +30,7 @@ export default function Form(){
         countries: []
       };
       
-      const [inputs, setInputs] = useState(initialState);
+    const [inputs, setInputs] = useState(initialState);
 
     const [errors, setErrors] = useState({
         name:  "",
