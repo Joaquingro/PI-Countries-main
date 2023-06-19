@@ -1,5 +1,5 @@
 const { Activity } = require('../db');
-
+//Hola
 const getActivities = async (req, res) => {
     try {
         let foundActivities = await Activity.findAll();
